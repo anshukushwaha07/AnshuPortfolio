@@ -1,41 +1,50 @@
 import React, { useState } from "react";
 import Cards from "./Cards";
 
+import movieImage from "../assets/project/Movie.png";
+
 const projectList = [
   {
     title: "Real-Time Chat App",
     description: "A full-featured chat application using React and Socket.io.",
-    image: "/src/assets/project/chat.png",
+    // This is a CDN URL, so it's just a string.
+    imageUrl:
+      "https://res.cloudinary.com/dd6hsdwpe/image/upload/v1724726487/chat_beps7a.png",
     link: "https://github.com/anshukushwaha07/RealTime-chat",
   },
   {
     title: "Car Rental Platform",
     description:
       "A web application for browsing and renting cars, built with a modern tech stack.",
-    image: "/src/assets/project/CarRental.png",
+    // This is also a CDN URL.
+    imageUrl:
+      "https://res.cloudinary.com/dd6hsdwpe/image/upload/v1724726487/CarRental_bflmhs.png",
     link: "https://github.com/anshukushwaha07/Car-Rent",
   },
   {
     title: "AI tasks Manager",
     description: "Track tasks and get automatic reminders via email and phone",
-    image: "/project/Free.jpeg",
+
+    // The path must start with `/` to work on Vercel.
+    imageUrl:
+      "https://res.cloudinary.com/dd6hsdwpe/image/upload/Gemini_Generated_Image_ii9qqdii9qqdii9q_tmyd1i",
     link: "https://github.com/anshukushwaha07",
   },
-  // {
-  //   title: "Eat 'N' Split",
-  //   description:
-  //     "A handy utility to split a bill with friends after a meal, created with React.",
-  //   image: "/src/assets/project/eat-n-split.png",
-  //   link: "https://github.com/anshukushwaha07/eat-split-money",
-  // },
   {
     title: "Movie Info App",
     description:
       "Browse and search for information about movies using a public API.",
-    image: "/src/assets/project/Movie.png",
+    // Here we use the variable from our import statement above.
+    imageUrl: movieImage,
     link: "https://github.com/anshukushwaha07/MovieInfo",
   },
-  // You can add more projects here
+  {
+    title: "Coming Soon Project",
+    description: "Another exciting project is in the works. Check back later!",
+    // For a placeholder, we explicitly set imageUrl to null.
+    imageUrl: null,
+    link: "https://github.com/anshukushwaha07",
+  },
 ];
 
 function Projects() {
@@ -49,9 +58,24 @@ function Projects() {
     <section className="px-8 py-16">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {projectList.slice(0, visibleCount).map((project, idx) => {
-          const isPlaceholder = !project.image.startsWith("/src/assets/");
-
-          return isPlaceholder ? (
+          return project.imageUrl ? (
+            // Renders if there IS an image
+            <a
+              href={project.link}
+              key={idx}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block transform hover:scale-105 transition-transform duration-300"
+            >
+              <Cards
+                title={project.title}
+                description={project.description}
+                // --- CHANGE 4: Pass the standardized `imageUrl` prop ---
+                image={project.imageUrl}
+              />
+            </a>
+          ) : (
+            // Renders the placeholder if `imageUrl` is null
             <a
               href={project.link}
               key={idx}
@@ -72,20 +96,6 @@ function Projects() {
                   </p>
                 </div>
               </div>
-            </a>
-          ) : (
-            <a
-              href={project.link}
-              key={idx}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block transform hover:scale-105 transition-transform duration-300"
-            >
-              <Cards
-                title={project.title}
-                description={project.description}
-                image={project.image}
-              />
             </a>
           );
         })}
