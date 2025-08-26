@@ -20,9 +20,13 @@ const ContactModal = ({ isOpen, onClose }) => {
 
     // Replace with your EmailJS credentials
 
-    const templateID = import.meta.env.TEMPLATE_ID;
+    const templateID = import.meta.env.VITE_TEMPLATE_ID;
     const serviceID = import.meta.env.VITE_SERVICE_ID;
     const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+
+    console.log("templateID:", templateID);
+    console.log("serviceID:", serviceID);
+    console.log("publicKey:", publicKey);
 
     emailjs.sendForm(serviceID, templateID, form.current, publicKey).then(
       (result) => {
