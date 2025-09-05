@@ -10,7 +10,7 @@ const projectList = [
     // This is a CDN URL, so it's just a string.
     imageUrl:
       "https://res.cloudinary.com/dd6hsdwpe/image/upload/v1724726487/chat_beps7a.png",
-    link: "https://github.com/anshukushwaha07/RealTime-chat",
+    link: "https://realtime-chat-hztu.onrender.com/",
   },
   {
     title: "Car Rental Platform",
