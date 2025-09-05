@@ -1,23 +1,31 @@
 #!/bin/bash
+
 # =============================================
+
 # README.md generator for Anshu Portfolio
+
 # =============================================
 
 # --- Personalization ---
-# Fill these variables out before running the script
+
+# Fill these variables before running the script
+
 LIVE_DEMO_URL="https://anshu-portfolio-ecru.vercel.app/"
 LINKEDIN_URL="https://www.linkedin.com/in/anshukush/"
 EMAIL_ADDRESS="anshu.kush007@gmail.com"
-
+SCREENSHOT_URL="https://via.placeholder.com/800x400.png?text=Portfolio+Screenshot"
 
 # Remove existing README.md if it exists
+
 if [ -f README.md ]; then
-    echo "⚠️  README.md already exists. Overwriting..."
-    rm README.md
+echo "⚠️ README.md already exists. Overwriting..."
+rm README.md
 fi
 
 # Create new README.md
+
 cat << EOF > README.md
+
 # 🌐 Anshu Portfolio
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -28,18 +36,20 @@ A modern and responsive **developer portfolio** built with **React + Vite** to s
 
 ---
 
-### 🚀 **[Live Demo](${https://anshu-portfolio-ecru.vercel.app/})**
+### 🚀 [Live Demo]($LIVE_DEMO_URL)
 
 ---
 
 ## 📸 Preview
 
-![Portfolio Screenshot](${SCREENSHOT_URL})
+![Portfolio Screenshot]($SCREENSHOT_URL)
 
 ---
 
 ## 💡 Overview
+
 This is my personal portfolio website where you can:
+
 - Explore my **projects** and **achievements**.
 - Learn more about my **skills**.
 - Connect with me via the **contact form**.
@@ -47,6 +57,7 @@ This is my personal portfolio website where you can:
 ---
 
 ## 🛠️ Built With
+
 - ⚛️ **React** – Component-based UI
 - ⚡ **Vite** – Fast build tool
 - 🎨 **Tailwind CSS** – Styling & responsiveness
@@ -56,6 +67,7 @@ This is my personal portfolio website where you can:
 ---
 
 ## ✨ Features
+
 - 📂 Projects gallery with live links and GitHub repos.
 - 🌓 Dark / Light theme support (if implemented).
 - 📱 Fully responsive design for all devices.
@@ -66,6 +78,7 @@ This is my personal portfolio website where you can:
 ## 🏗️ Getting Started
 
 ### Prerequisites
+
 Make sure you have **Node.js** (v18+) and **npm** installed.
 
 ### Installation & Setup
@@ -85,13 +98,14 @@ Make sure you have **Node.js** (v18+) and **npm** installed.
    - Create a \`.env\` file in the root of the project.
    - Copy the contents of \`.env.example\` into your new \`.env\` file.
    - Fill in your EmailJS credentials:
-     \`\`\`
+     \`\`\`env
      VITE_EMAILJS_SERVICE_ID=your_service_id
      VITE_EMAILJS_TEMPLATE_ID=your_template_id
      VITE_EMAILJS_PUBLIC_KEY=your_public_key
      \`\`\`
 
 ### Run Locally
+
 Start the development server:
 \`\`\`bash
 npm run dev
@@ -99,6 +113,7 @@ npm run dev
 The application will be available at \`http://localhost:5173\`.
 
 ### Build for Production
+
 Generate an optimized build for deployment:
 \`\`\`bash
 npm run build
@@ -107,7 +122,9 @@ npm run build
 ---
 
 ## 🌍 Deployment
+
 This project can be easily deployed to any static site hosting service:
+
 - [Vercel](https://vercel.com/)
 - [Netlify](https://www.netlify.com/)
 - [GitHub Pages](https://pages.github.com/)
@@ -115,10 +132,11 @@ This project can be easily deployed to any static site hosting service:
 ---
 
 ## 📬 Contact
+
 If you like my work or want to collaborate, feel free to connect with me:
 
-- **LinkedIn:** [${LINKEDIN_URL}](${LINKEDIN_URL})
-- **Email:** [${EMAIL_ADDRESS}](mailto:${EMAIL_ADDRESS})
+- **LinkedIn:** [$LINKEDIN_URL]($LINKEDIN_URL)
+- **Email:** [$EMAIL_ADDRESS](mailto:$EMAIL_ADDRESS)
 
 ⭐ If you find this project useful, please consider giving it a star!
 
